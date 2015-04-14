@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -73,7 +74,9 @@
         android:layout_alignParentEnd="false"
         android:layout_margin="45dp"
         android:layout_alignParentStart="false"
-        android:id="@+id/linearLayout2" >
+        android:id="@+id/linearLayout2"
+        android:visibility="visible"
+        android:weightSum="1">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -84,14 +87,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
+                android:text="Text Chat"
                 android:id="@+id/textView4" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/button4" />
+                android:text="Connect"
+                android:id="@+id/button4"
+                android:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,13 +107,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
+                android:text="Text Chat"
                 android:id="@+id/textView5" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Button"
+                android:text="Connect"
                 android:id="@+id/button5" />
         </LinearLayout>
 
@@ -122,15 +126,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
+                android:text="Text Chat"
                 android:id="@+id/textView6" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Button"
+                android:text="Connect"
                 android:id="@+id/button6" />
         </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.94" />
     </LinearLayout>
 
 </LinearLayout>
