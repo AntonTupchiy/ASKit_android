@@ -34,7 +34,7 @@
             android:id="@+id/button"
             android:textAllCaps="false"
             android:background="@drawable/glass_style"
-            android:textColor="#ff500f0a"
+            android:textColor="#bb0705"
             android:textSize="25dp"
             android:clickable="false" />
 
@@ -46,7 +46,7 @@
             android:textAllCaps="false"
             android:layout_gravity="top"
             android:background="@drawable/glass_style"
-            android:textColor="#ff500f0a"
+            android:textColor="#bb0705"
             android:textSize="25dp" />
     </LinearLayout>
 
