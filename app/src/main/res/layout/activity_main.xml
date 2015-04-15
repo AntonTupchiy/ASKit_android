@@ -31,7 +31,7 @@
             android:layout_height="64dp"
             android:text="Profile"
             android:id="@+id/button"
-            android:background="@drawable/button" />
+            android:background="@drawable/glass_style" />
 
         <Button
             android:layout_width="128dp"
@@ -39,7 +39,7 @@
             android:text="Log out"
             android:id="@+id/button3"
             android:layout_gravity="top"
-            android:background="@drawable/button" />
+            android:background="@drawable/glass_style" />
     </LinearLayout>
 
     <TextView
@@ -61,15 +61,23 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="GO"
+        android:text="Chose interest"
+        android:id="@+id/interest_button"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/glass_style" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="ASK it!"
         android:id="@+id/button"
 
         android:layout_below="@+id/editText3"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/button" />
+        android:background="@drawable/glass_style" />
 
     <LinearLayout
         android:orientation="vertical"

@@ -78,6 +78,7 @@
         android:id="@+id/button7"
         android:layout_gravity="center_horizontal"
         android:textSize="28dp"
-        android:background="@drawable/button" />
+        android:background="@drawable/glass_style"
+        android:soundEffectsEnabled="true" />
 
 </LinearLayout>
