@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/ic_launcher">
+    android:background="@drawable/background">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -10,7 +10,7 @@
         android:layout_height="128dp"
         android:weightSum="1"
         android:id="@+id/linearLayout2"
-        android:background="‪D:\background.jpg">
+        >
 
         <ImageView
             android:layout_width="128dp"
@@ -28,16 +28,18 @@
 
         <Button
             android:layout_width="128dp"
-            android:layout_height="60dp"
+            android:layout_height="64dp"
             android:text="Profile"
-            android:id="@+id/button" />
+            android:id="@+id/button"
+            android:background="@drawable/button" />
 
         <Button
             android:layout_width="128dp"
             android:layout_height="64dp"
             android:text="Log out"
             android:id="@+id/button3"
-            android:layout_gravity="top" />
+            android:layout_gravity="top"
+            android:background="@drawable/button" />
     </LinearLayout>
 
     <TextView
@@ -63,9 +65,11 @@
         android:layout_height="wrap_content"
         android:text="GO"
         android:id="@+id/button"
+
         android:layout_below="@+id/editText3"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -79,73 +83,7 @@
         android:visibility="visible"
         android:weightSum="1">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Text Chat"
-                android:id="@+id/textView4"
-                android:textSize="25dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Connect"
-                android:id="@+id/button4"
-                android:visibility="visible" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Text Chat"
-                android:id="@+id/textView5"
-                android:textSize="25dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Connect"
-                android:id="@+id/button5" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Text Chat"
-                android:id="@+id/textView6"
-                android:textSize="25dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Connect"
-                android:id="@+id/button6" />
-        </LinearLayout>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText2"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.94" />
     </LinearLayout>
 
 </LinearLayout>
