@@ -36,7 +36,7 @@
             android:background="@drawable/glass_style"
             android:textColor="#bb0705"
             android:textSize="25dp"
-            android:clickable="false" />
+            android:clickable="true" />
 
         <Button
             android:layout_width="128dp"
@@ -47,7 +47,8 @@
             android:layout_gravity="top"
             android:background="@drawable/glass_style"
             android:textColor="#bb0705"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            android:clickable="true" />
     </LinearLayout>
 
     <TextView
@@ -59,7 +60,8 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/linearLayout"
         android:layout_gravity="center_horizontal"
-        android:textColor="#bb0705" />
+        android:textColor="#bb0705"
+        android:shadowColor="#ffffffff" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -80,7 +82,8 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/glass_style"
         android:textColor="#bb0705"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:clickable="true" />
 
     <LinearLayout
         android:orientation="vertical"
