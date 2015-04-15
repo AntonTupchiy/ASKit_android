@@ -9,8 +9,8 @@
         android:layout_width="fill_parent"
         android:layout_height="128dp"
         android:weightSum="1"
-        android:id="@+id/linearLayout2"
-        android:background="‪D:\background.jpg">
+        android:id="@+id/linearLayout2">
+        <!--android:background="‪D:\background.jpg"-->
 
         <ImageView
             android:layout_width="128dp"
