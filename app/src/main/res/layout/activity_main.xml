@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
@@ -24,14 +24,18 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="profileName"
             android:id="@+id/textView3"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#bb0705" />
 
         <Button
             android:layout_width="128dp"
             android:layout_height="64dp"
             android:text="Profile"
             android:id="@+id/button"
-            android:background="@drawable/glass_style" />
+            android:background="@drawable/glass_style"
+            android:textColor="#bb0705"
+            android:textSize="25dp"
+            android:clickable="false" />
 
         <Button
             android:layout_width="128dp"
@@ -39,19 +43,21 @@
             android:text="Log out"
             android:id="@+id/button3"
             android:layout_gravity="top"
-            android:background="@drawable/glass_style" />
+            android:background="@drawable/glass_style"
+            android:textColor="#bb0705"
+            android:textSize="25dp" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Ask your question below:"
         android:id="@+id/textView3"
         android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/linearLayout"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textColor="#bb0705" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -62,14 +68,16 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:text="ASK it!"
         android:id="@+id/button"
 
         android:layout_below="@+id/editText3"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/glass_style" />
+        android:background="@drawable/glass_style"
+        android:textColor="#bb0705"
+        android:textSize="25dp" />
 
     <LinearLayout
         android:orientation="vertical"
