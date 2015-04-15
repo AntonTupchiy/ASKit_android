@@ -85,6 +85,7 @@
         android:textSize="28dp"
         android:background="@drawable/glass_style"
         android:soundEffectsEnabled="true"
-        android:textColor="#bb0705" />
+        android:textColor="#bb0705"
+        android:clickable="true" />
 
 </LinearLayout>
