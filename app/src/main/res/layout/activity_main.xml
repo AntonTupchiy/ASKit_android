@@ -63,14 +63,6 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Chose interest"
-        android:id="@+id/interest_button"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/glass_style" />
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
         android:text="ASK it!"
         android:id="@+id/button"
 
