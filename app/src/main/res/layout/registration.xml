@@ -77,10 +77,11 @@
         android:layout_height="wrap_content"
         android:text="@string/Submit"
         android:id="@+id/button7"
+        android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
         android:textSize="28dp"
         android:background="@drawable/glass_style"
         android:soundEffectsEnabled="true"
-        android:textColor="#ff500f0a" />
+        android:textColor="#bb0705" />
 
 </LinearLayout>
