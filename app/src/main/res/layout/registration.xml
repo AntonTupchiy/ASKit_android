@@ -61,7 +61,8 @@
         android:text="@string/InputMail"
         android:id="@+id/textView10"
         android:layout_gravity="center_horizontal"
-        android:textSize="28dp" />
+        android:textSize="28dp"
+        android:textColor="#ff2f5419" />
 
     <EditText
         android:layout_width="match_parent"
@@ -79,6 +80,7 @@
         android:layout_gravity="center_horizontal"
         android:textSize="28dp"
         android:background="@drawable/glass_style"
-        android:soundEffectsEnabled="true" />
+        android:soundEffectsEnabled="true"
+        android:textColor="#ff500f0a" />
 
 </LinearLayout>

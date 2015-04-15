@@ -29,22 +29,22 @@
 
         <Button
             android:layout_width="128dp"
-            android:layout_height="64dp"
+            android:layout_height="60dp"
             android:text="Profile"
             android:id="@+id/button"
             android:background="@drawable/glass_style"
-            android:textColor="#bb0705"
+            android:textColor="#ff500f0a"
             android:textSize="25dp"
             android:clickable="false" />
 
         <Button
             android:layout_width="128dp"
-            android:layout_height="64dp"
+            android:layout_height="60dp"
             android:text="Log out"
             android:id="@+id/button3"
             android:layout_gravity="top"
             android:background="@drawable/glass_style"
-            android:textColor="#bb0705"
+            android:textColor="#ff500f0a"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -68,7 +68,7 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="64dp"
+        android:layout_height="60dp"
         android:text="ASK it!"
         android:id="@+id/button"
 
