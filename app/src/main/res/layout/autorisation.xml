@@ -9,7 +9,7 @@
         android:layout_height="193dp"
         android:id="@+id/imageView3"
         android:layout_gravity="center_horizontal|top"
-        android:background="@drawable/logo" />
+        android:background="@drawable/loogo" />
 
     <TextView
         android:layout_width="wrap_content"
