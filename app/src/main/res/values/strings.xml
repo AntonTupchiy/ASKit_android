@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="LoginName">Please enter login name</string>
+    <string name="EnterPass">Please enter password</string>
+    <string name="ConfPass">Confirm the password</string>
+    <string name="InputMail">Enter E-mail</string>
+    <string name="Submit">Confirm</string>
 </resources>
