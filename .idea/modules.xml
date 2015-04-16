@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ASKit_android.iml" filepath="$PROJECT_DIR$/ASKit_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mysql-connector-java-5.1.35-bin/mysql-connector-java-5.1.35-bin.iml" filepath="$PROJECT_DIR$/mysql-connector-java-5.1.35-bin/mysql-connector-java-5.1.35-bin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sqljdbc41/sqljdbc41.iml" filepath="$PROJECT_DIR$/sqljdbc41/sqljdbc41.iml" />
     </modules>
   </component>
 </project>
