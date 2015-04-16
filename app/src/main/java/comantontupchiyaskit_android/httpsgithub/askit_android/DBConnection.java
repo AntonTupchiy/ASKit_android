@@ -1,5 +1,7 @@
 package comantontupchiyaskit_android.httpsgithub.askit_android;
 
+import android.util.Log;
+
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -8,6 +10,7 @@ import java.sql.SQLException;
  * Created by user on 15.04.2015.
  */
 public class DBConnection {
+    final String LOG_TAG = "myLogs";
     private static String Url = "jdbc:sqlserver://SQL5012.Smarterasp.net:1433;" +
             "databaseName=DB_9BD928_AskIt;integratedSecurity=true;";
     private static String Login = "DB_9BD928_AskIt_admin";
@@ -15,17 +18,17 @@ public class DBConnection {
 
     //init
     public void mysqlInit() {
-        System.out.println("-------- MySQL JDBC Connection Testing ------------");
+        Log.d(LOG_TAG,"-------- MySQL JDBC Connection Testing ------------");
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {
-            System.out.println("Where is your MySQL JDBC Driver?");
+            Log.d(LOG_TAG,"Where is your MySQL JDBC Driver?");
             e.printStackTrace();
             return;
         }
 
-        System.out.println("MySQL JDBC Driver Registered!");
+        Log.d(LOG_TAG,"MySQL JDBC Driver Registered!");
         Connection connection = null;
 
         try {
@@ -33,15 +36,15 @@ public class DBConnection {
                     .getConnection(Url, Login, Password);
 
         } catch (SQLException e) {
-            System.out.println("Connection Failed! Check output console");
+            Log.d(LOG_TAG, "Connection Failed! Check output console");
             e.printStackTrace();
             return;
         }
 
         if (connection != null) {
-            System.out.println("You made it, take control your database now!");
+            Log.d(LOG_TAG,"You made it, take control your database now!");
         } else {
-            System.out.println("Failed to make connection!");
+            Log.d(LOG_TAG,"Failed to make connection!");
         }
     }
 }
