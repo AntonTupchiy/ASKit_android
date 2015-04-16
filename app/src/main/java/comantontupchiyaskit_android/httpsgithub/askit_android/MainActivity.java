@@ -14,6 +14,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
 
+        //test
         DBConnection dbConnection = new DBConnection();
         dbConnection.mysqlInit();
     }
