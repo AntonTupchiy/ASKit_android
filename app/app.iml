@@ -85,7 +85,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="sqljdbc41" exported="" />
+    <orderEntry type="module" module-name="jtds-1.2.8" exported="" />
   </component>
 </module>
 
