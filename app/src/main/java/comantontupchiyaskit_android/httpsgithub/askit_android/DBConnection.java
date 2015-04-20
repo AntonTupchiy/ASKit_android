@@ -58,11 +58,22 @@ public class DBConnection {
                     con = getDBConnection();
                     stmt = con.createStatement();
                     stmt.execute(sql);
+                    resultSet = stmt.executeQuery(sql);
                 } catch (Exception e) {
                     Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
                     e.printStackTrace();
                     return;
                 }
+//                 finally {
+//                    try {
+//                        if (con != null)
+//                            con.close();
+//                        else if (stmt != null)
+//                            stmt.close();
+//                    } catch (SQLException e){
+//                        e.printStackTrace();
+//                    }
+//                }
             }
         });
         thread.start();
@@ -90,21 +101,31 @@ public class DBConnection {
         thread.start();
     }
 
-    public boolean CheckCredentialsCorrectness(final String login, String password)
-    {  final String query = "SELECT FROM [dbo].[Users]([Login]) WHERE [Login]='"+login+"', [Password]='"+ password +"'";
-
+    public boolean CheckCredentialsCorrectness(final String login, final String password) {
+        final String query = "SELECT * FROM [dbo].[Users] WHERE [Login]='" + login + "' AND [Password]='" + password + "'";
+        Thread threadOnCheck = new Thread(new Runnable() {
+            @Override
+            public void run() {
                 try {
                     con = getDBConnection();
                     stmt = con.createStatement();
                     resultSet = stmt.executeQuery(query);
-                    if(login.equals(resultSet.getString("Login")))
-                        return true;
-
+                    String log = resultSet.getString("Login").toString();
+                    String pass = resultSet.getString("Password").toString();
+                    Log.d(LOG_TAG, log);
+                    Log.d(LOG_TAG, pass);
+                    if (login.equals(log) && password.equals(pass)) {
+                        Log.d(LOG_TAG, "User exist in db");
+                        return;
+                    }
                 } catch (Exception e) {
                     Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
                     e.printStackTrace();
                 }
+            }
+        });
 
+        threadOnCheck.start();
         return false;
     }
 }
