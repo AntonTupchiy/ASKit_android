@@ -7,7 +7,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="128dp"
+        android:layout_height="wrap_content"
         android:weightSum="1"
         android:id="@+id/linearLayout2"
         >
@@ -19,8 +19,8 @@
             android:contentDescription="icon" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="profileName"
             android:id="@+id/textView3"
@@ -28,8 +28,8 @@
             android:textColor="#bb0705" />
 
         <Button
-            android:layout_width="128dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Profile"
             android:id="@+id/button"
             android:textAllCaps="false"
@@ -39,8 +39,8 @@
             android:clickable="true" />
 
         <Button
-            android:layout_width="128dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Log out"
             android:id="@+id/button3"
             android:textAllCaps="false"
