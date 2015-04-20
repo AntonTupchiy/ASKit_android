@@ -20,6 +20,7 @@ public class DBConnection {
     private Statement stmt = null;
     private String sql = "INSERT INTO [dbo].[Users] ([Login], [Name], [Surname], [E-Mail], [Password], [Knowledge]) " +
             "VALUES ('vasya','vasya','vasya','vasya@mail.ru','vasya', 'vasya')";
+
     //init
 
     public void mysqlInit() {
