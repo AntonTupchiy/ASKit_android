@@ -5,18 +5,21 @@ import android.util.Log;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by user on 15.04.2015.
  */
 public class DBConnection {
-    final String LOG_TAG = "myLogs";
+    private final String LOG_TAG = "myLogs";
     private static String Url = "jdbc:jtds:sqlserver://208.118.63.109:1433;databaseName=DB_9BD928_AskIt;";
     private static String Login = "DB_9BD928_AskIt_admin";
     private static String Password = "q1w2E3r4";
     private static String driver = "net.sourceforge.jtds.jdbc.Driver";
     private Connection  con = null;
-
+    private Statement stmt = null;
+    private String sql = "INSERT INTO [dbo].[Users] ([Login], [Name], [Surname], [E-Mail], [Password], [Knowledge]) " +
+            "VALUES ('vasya','vasya','vasya','vasya@mail.ru','vasya', 'vasya')";
     //init
 
     public void mysqlInit() {
@@ -37,6 +40,8 @@ public class DBConnection {
             public void run() {
                 try {
                     con = DriverManager.getConnection(Url, Login, Password);
+                    stmt = con.createStatement();
+                    stmt.execute(sql);
                 } catch (Exception e) {
                     Log.d(LOG_TAG, "Connection Failed! Check output console");
                     e.printStackTrace();
@@ -51,14 +56,5 @@ public class DBConnection {
             }
         });
         thread.start();
-/*        try {
-            con = DriverManager.getConnection(Url, Login, Password);
-            //connection = DriverManager.getConnection(Url, Login, Password);
-
-        } catch (SQLException e) {
-            Log.d(LOG_TAG, "Connection Failed! Check output console");
-            e.printStackTrace();
-            return;
-        }*/
     }
 }
