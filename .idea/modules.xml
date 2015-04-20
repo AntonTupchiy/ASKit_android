@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ASKit2_android.iml" filepath="$PROJECT_DIR$/ASKit2_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ASKit_android.iml" filepath="$PROJECT_DIR$/ASKit_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jtds-1.2.8/jtds-1.2.8.iml" filepath="$PROJECT_DIR$/jtds-1.2.8/jtds-1.2.8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sqljdbc41/sqljdbc41.iml" filepath="$PROJECT_DIR$/sqljdbc41/sqljdbc41.iml" />
     </modules>
   </component>
 </project>
