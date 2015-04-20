@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created by user on 15.04.2015.
@@ -101,8 +102,9 @@ public class DBConnection {
         thread.start();
     }
 
-    public boolean CheckCredentialsCorrectness(final String login, final String password) {
+    public boolean CheckCredentialsCorrectness(final String login, final String password) throws InterruptedException {
         final String query = "SELECT * FROM [dbo].[Users] WHERE [Login]='" + login + "' AND [Password]='" + password + "'";
+        final AtomicBoolean b = new AtomicBoolean(false);
         Thread threadOnCheck = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -110,13 +112,15 @@ public class DBConnection {
                     con = getDBConnection();
                     stmt = con.createStatement();
                     resultSet = stmt.executeQuery(query);
-                    String log = resultSet.getString("Login").toString();
-                    String pass = resultSet.getString("Password").toString();
-                    Log.d(LOG_TAG, log);
-                    Log.d(LOG_TAG, pass);
-                    if (login.equals(log) && password.equals(pass)) {
-                        Log.d(LOG_TAG, "User exist in db");
-                        return;
+                    while (resultSet.next()){
+                        String log = resultSet.getString("Login");
+                        String pass = resultSet.getString("Password");
+                        Log.d(LOG_TAG, log);
+                        Log.d(LOG_TAG, pass);
+                        if (login.equals(log) && password.equals(pass)) {
+                            Log.d(LOG_TAG, "User exist in db");
+                            b.set(true);
+                        }
                     }
                 } catch (Exception e) {
                     Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
@@ -126,6 +130,7 @@ public class DBConnection {
         });
 
         threadOnCheck.start();
-        return false;
+        threadOnCheck.join();
+        return b.get();
     }
 }
