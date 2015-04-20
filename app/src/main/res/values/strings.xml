@@ -7,5 +7,6 @@
     <string name="EnterPass">Please enter password</string>
     <string name="ConfPass">Confirm the password</string>
     <string name="InputMail">Enter E-mail</string>
+    <string name="InputInterests">Enter interests</string>
     <string name="Submit">Confirm</string>
 </resources>

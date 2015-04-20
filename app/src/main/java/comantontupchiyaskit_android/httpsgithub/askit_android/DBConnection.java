@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -18,6 +19,9 @@ public class DBConnection {
     private static String driver = "net.sourceforge.jtds.jdbc.Driver";
     private static Connection con = null;
     private Statement stmt = null;
+    private ResultSet resultSet = null;
+    boolean result;
+
     private String sql = "INSERT INTO [dbo].[Users] ([Login], [Name], [Surname], [E-Mail], [Password], [Knowledge]) " +
             "VALUES ('vasya','vasya','vasya','vasya@google.ru','vasya', 'vasya')";
 
@@ -62,5 +66,45 @@ public class DBConnection {
             }
         });
         thread.start();
+    }
+
+    public void NewUser(String login, String password, String email, String interests)
+    {
+        final String query = "INSERT INTO [dbo].[Users] ([Login], [Name], [Surname], [E-Mail], [Password], [Knowledge]) " +
+                "VALUES ('"+ login+"','"+ "_" +"','"+"_"+"','"+email+"','"+password+"', '"+interests+"')";
+
+        Thread thread = new Thread(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    stmt.execute(query);
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                    return;
+                }
+            }
+        });
+        thread.start();
+    }
+
+    public boolean CheckCredentialsCorrectness(final String login, String password)
+    {  final String query = "SELECT FROM [dbo].[Users]([Login]) WHERE [Login]='"+login+"', [Password]='"+ password +"'";
+
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    resultSet = stmt.executeQuery(query);
+                    if(login.equals(resultSet.getString("Login")))
+                        return true;
+
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                }
+
+        return false;
     }
 }

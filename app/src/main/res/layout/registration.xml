@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/background"
+    android:background="@drawable/background2"
     android:baselineAligned="true">
 
     <TextView
@@ -19,7 +19,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4"
+        android:id="@+id/txtLogin"
         android:layout_gravity="center_horizontal" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText5"
+        android:id="@+id/txtPassword"
         android:layout_gravity="center_horizontal" />
 
     <TextView
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText6"
+        android:id="@+id/txtPasswordConf"
         android:layout_gravity="center_horizontal" />
 
     <TextView
@@ -72,7 +72,23 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText7"
+        android:id="@+id/txtEmail"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/InputInterests"
+        android:id="@+id/textView11"
+        android:layout_gravity="center_horizontal"
+        android:textSize="28dp"
+        android:textColor="#bb0705" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/txtInterests"
         android:layout_gravity="center_horizontal" />
 
     <Button
@@ -86,6 +102,7 @@
         android:background="@drawable/glass_style"
         android:soundEffectsEnabled="true"
         android:textColor="#bb0705"
-        android:clickable="true" />
+        android:clickable="true"
+        android:onClick="ConfirmRegistration"/>
 
 </LinearLayout>
