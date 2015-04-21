@@ -3,6 +3,7 @@ package comantontupchiyaskit_android.httpsgithub.askit_android;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +28,11 @@ public class MainActivity extends Activity {
         //test
     }
 
+    public void profileButton(View view){
+        Intent i = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(i);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -49,7 +55,7 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void ConfirmRegistration(View view)
+/*    public void ConfirmRegistration(View view)
     {
         EditText txtLog = (EditText) findViewById(R.id.txtLogin);
         EditText txtPas = (EditText) findViewById(R.id.txtPassword);
@@ -65,5 +71,5 @@ public class MainActivity extends Activity {
 //        dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 //            public void onClick(DialogInterface dialog, int which) {
 //                //dismiss the dialog
-   }
+   }*/
 }

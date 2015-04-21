@@ -68,4 +68,9 @@ public class AuthorizationActivity extends Activity {
             dlgAlert.create().show();
         }
     }
+
+    public void registrationButton(View view){
+        Intent i = new Intent(AuthorizationActivity.this, RegistrationActivity.class);
+        startActivity(i);
+    }
 }
