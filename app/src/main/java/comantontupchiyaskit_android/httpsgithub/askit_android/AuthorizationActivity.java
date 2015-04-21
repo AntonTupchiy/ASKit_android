@@ -15,9 +15,9 @@ import android.widget.EditText;
  */
 public class AuthorizationActivity extends Activity {
 
-    DBConnection dbConnection;
-    EditText txtLogin;
-    EditText txtPassword;
+    private DBConnection dbConnection = new DBConnection();
+    private EditText txtLogin;
+    private EditText txtPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,6 @@ public class AuthorizationActivity extends Activity {
 
         txtLogin = (EditText) findViewById(R.id.txtLogin);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
-        dbConnection = new DBConnection();
     }
 
     public void Authorize(View view)
@@ -45,7 +44,7 @@ public class AuthorizationActivity extends Activity {
             } else {
                 AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
                 dlgAlert.setMessage("Such user was not found");
-                dlgAlert.setTitle("Error occured");
+                dlgAlert.setTitle("Error occurred");
                 dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         //dismiss the dialog
@@ -58,8 +57,8 @@ public class AuthorizationActivity extends Activity {
         catch(Exception ex)
         {
             AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
-            dlgAlert.setMessage("Error occured" + ex.getMessage());
-            dlgAlert.setTitle("Error occured");
+            dlgAlert.setMessage("Error occurred" + ex.getMessage());
+            dlgAlert.setTitle("Error occurred");
             dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     //dismiss the dialog
