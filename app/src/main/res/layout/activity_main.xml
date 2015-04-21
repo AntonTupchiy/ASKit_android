@@ -37,7 +37,7 @@
             android:textColor="#bb0705"
             android:textSize="25dp"
             android:clickable="true"
-            android:onClick="registrationButton" />
+            android:onClick="profileButton" />
 
         <Button
             android:layout_width="wrap_content"
