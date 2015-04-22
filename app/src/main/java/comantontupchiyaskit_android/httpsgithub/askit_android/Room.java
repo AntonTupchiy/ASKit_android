@@ -11,10 +11,13 @@ public class Room {
     public Time time;
     public String question;
 
-    public Room(int authorId, Time time, String question)
+    public Room(int id, int authorId, Time time, String question)
     {
+        this.ID = id;
         this.authorId = authorId;
         this.time = time;
         this.question = question;
     }
+
+    public Room(){}
 }

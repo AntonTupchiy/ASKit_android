@@ -30,7 +30,7 @@ public class User {
 
     public void RememberUser()
     {
-        Preferences preferences = new Preferences();
-        preferences.SetAuthorizedUser(this);
+        //Preferences preferences = new Preferences();
+        //preferences.SetAuthorizedUser(this);
     }
 }

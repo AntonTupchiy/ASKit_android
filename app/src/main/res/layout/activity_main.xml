@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="profileName"
-            android:id="@+id/textView1"
+            android:id="@+id/txtViewName"
             android:layout_weight="1"
             android:textColor="#bb0705" />
 
@@ -43,13 +43,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Log out"
-            android:id="@+id/button3"
+            android:id="@+id/btnLogOut"
             android:textAllCaps="false"
             android:layout_gravity="top"
             android:background="@drawable/glass_style"
             android:textColor="#bb0705"
             android:textSize="25dp"
-            android:clickable="true" />
+            android:clickable="true"
+            android:onClick="LogOut"/>
     </LinearLayout>
 
     <TextView
@@ -66,7 +67,7 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/txtQuestion"
         android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true" />
 
@@ -83,7 +84,8 @@
         android:background="@drawable/glass_style"
         android:textColor="#bb0705"
         android:textSize="25dp"
-        android:clickable="true" />
+        android:clickable="true"
+        android:onClick="AskQuestion"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -136,6 +138,59 @@
                 android:textSize="25dp"
                 android:textColor="#bb0705" />
         </RelativeLayout>
+
+        <TabHost
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/tabHost">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"></TabWidget>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <LinearLayout
+                        android:id="@+id/tab1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical">
+
+
+                        <ListView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/lViewallRooms" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical">
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="jasdjakjdkasjdjajshdaskjdhsdkfjs"/>
+                        </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical"></LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
 
     </LinearLayout>
 

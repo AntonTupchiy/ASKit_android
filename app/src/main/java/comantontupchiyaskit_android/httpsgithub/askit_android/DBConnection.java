@@ -1,5 +1,8 @@
 package comantontupchiyaskit_android.httpsgithub.askit_android;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 
 import java.sql.DriverManager;
@@ -7,6 +10,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -104,6 +110,28 @@ public class DBConnection {
         });
         thread.start();
     }
+    public void NewChatRoom(String question, java.util.Date date, Context context)
+    {
+            java.sql.Time sqlDate = new java.sql.Time(date.getTime());
+            final String query = "INSERT INTO [dbo].[Room] ([AuthorID], [Time], [Question]) " +
+                    "VALUES ('" + Globals.user.ID + "','" + sqlDate + "','" + question + "')";
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        con = getDBConnection();
+                        stmt = con.createStatement();
+                        stmt.execute(query);
+                    } catch (Exception e) {
+                        Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                        e.printStackTrace();
+                        return;
+                    }
+                }
+            });
+            thread.start();
+    }
     //endregion
 
     //region #SELECT queries
@@ -169,6 +197,120 @@ public class DBConnection {
         threadOnCheck.start();
         threadOnCheck.join();
         return user;
+    }
+
+    public String GetUserName(final int id) throws InterruptedException {
+        final String query = "SELECT [Login] FROM [dbo].[Users] WHERE [ID]='" + id + "'";
+
+        final AtomicBoolean b = new AtomicBoolean(false);
+        Thread threadOnCheck = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    resultSet = stmt.executeQuery(query);
+                    while (resultSet.next()){
+                        Globals.Login = resultSet.getString("Login");
+                    }
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        threadOnCheck.start();
+        threadOnCheck.join();
+
+        return Globals.Login;
+    }
+
+    public int GetUserId(final String login) throws InterruptedException {
+        final String query = "SELECT [ID] FROM [dbo].[Users] WHERE [Login]='" + login + "'";
+
+        final AtomicBoolean b = new AtomicBoolean(false);
+        Thread threadOnCheck = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    resultSet = stmt.executeQuery(query);
+                    while (resultSet.next()){
+                        Globals.UID = resultSet.getInt("ID");
+                    }
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        threadOnCheck.start();
+        threadOnCheck.join();
+
+        return Globals.UID;
+    }
+
+    public Room GetRoomData(final String qustion) throws InterruptedException {
+        final String query = "SELECT * FROM [dbo].[Room] WHERE [Question]='" + qustion + "'";
+        final Room room = new Room();
+        final AtomicBoolean b = new AtomicBoolean(false);
+        Thread threadOnCheck = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    resultSet = stmt.executeQuery(query);
+                    while (resultSet.next()){
+                        room.ID = resultSet.getInt("ID");
+                        room.authorId = resultSet.getInt("AuthorID");
+                        room.time = resultSet.getTime("Time");
+                        room.question = resultSet.getString("Question");
+                    }
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        threadOnCheck.start();
+        threadOnCheck.join();
+        return room;
+    }
+
+    public ArrayList<Room> GetAllRoomsData() throws InterruptedException {
+        final String query = "SELECT * FROM [dbo].[Room]";
+        final ArrayList<Room> returnList= new ArrayList<Room>();
+        final AtomicBoolean b = new AtomicBoolean(false);
+        Thread threadOnCheck = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    resultSet = stmt.executeQuery(query);
+                    while (resultSet.next()){
+                        Room room = new Room();
+                        room.ID = resultSet.getInt("ID");
+                        room.authorId = resultSet.getInt("AuthorID");
+                        room.time = resultSet.getTime("Time");
+                        room.question = resultSet.getString("Question");
+                        returnList.add(room);
+                    }
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        threadOnCheck.start();
+        threadOnCheck.join();
+        return returnList;
     }
     //endregion
 }

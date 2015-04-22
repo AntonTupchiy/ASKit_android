@@ -13,6 +13,7 @@
 
             android:name=".AuthorizationActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
 
             >
             <intent-filter>
@@ -22,9 +23,17 @@
         </activity>
 
 
-        <activity android:name=".RegistrationActivity"></activity>
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ChatActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".RegistrationActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".ProfileActivity"
+            android:screenOrientation="portrait"></activity>
+
         <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="ASKit_android"/>
     </application>
 

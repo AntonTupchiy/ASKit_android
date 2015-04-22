@@ -1,5 +1,6 @@
 package comantontupchiyaskit_android.httpsgithub.askit_android;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
@@ -7,42 +8,58 @@ import android.content.SharedPreferences;
  */
 public class Preferences {
 
-    SharedPreferences preferences;
+    SharedPreferences preferencesID;
+    SharedPreferences preferencesLogin;
+    SharedPreferences preferencesName;
+    SharedPreferences preferencesSurname;
+    SharedPreferences preferencesPassword;
+    SharedPreferences preferencesEmail;
+    SharedPreferences preferencesKnowledge;
 
+    public Preferences(Context context)
+    {
+        preferencesID = context.getSharedPreferences("ID", Context.MODE_PRIVATE);
+        preferencesLogin = context.getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
+        preferencesName = context.getSharedPreferences("NAME", Context.MODE_PRIVATE);
+        preferencesSurname = context.getSharedPreferences("SURNAME", Context.MODE_PRIVATE);
+        preferencesPassword = context.getSharedPreferences("PASSWORD", Context.MODE_PRIVATE);
+        preferencesEmail = context.getSharedPreferences("EMAIL", Context.MODE_PRIVATE);
+        preferencesKnowledge = context.getSharedPreferences("KNOWLEDGE", Context.MODE_PRIVATE);
+    }
     //region #Getting authorized user's credentials
     public int GetAuthorizedUserID()
     {
-        return preferences.getInt("UID", 0);
+        return preferencesID.getInt("UID", 0);
     }
 
     public String GetAuthorizedUserLogin()
     {
-        return preferences.getString("LOGIN", "_");
+        return preferencesLogin.getString("LOGIN", "_");
     }
 
     public String GetAuthorizedUserName()
     {
-        return preferences.getString("NAME", "_");
+        return preferencesName.getString("NAME", "_");
     }
 
     public String GetAuthorizedUserSurname()
     {
-        return preferences.getString("SURNAME", "_");
+        return preferencesSurname.getString("SURNAME", "_");
     }
 
     public String GetAuthorizedUserEmail()
     {
-        return preferences.getString("EMAIL", "_");
+        return preferencesEmail.getString("EMAIL", "_");
     }
 
     public String GetAuthorizedUserPassword()
     {
-        return preferences.getString("PASSWORD", "_");
+        return preferencesPassword.getString("PASSWORD", "_");
     }
 
     public String GetAuthorizedUserKnowledge()
     {
-        return preferences.getString("Knowledge", "_");
+        return preferencesKnowledge.getString("Knowledge", "_");
     }
 
     public User GetAuthorizedUser()
@@ -62,49 +79,49 @@ public class Preferences {
     //region #Setting authorized user's credentials
     public void SetAuthorizedUserID(int id)
     {
-        SharedPreferences.Editor editor = preferences.edit();
+        SharedPreferences.Editor editor = preferencesID.edit();
         editor.putInt("UID", id);
         editor.commit();
     }
 
     public void SetAuthorizedUserLogin(String login)
     {
-        SharedPreferences.Editor editor = preferences.edit();
+        SharedPreferences.Editor editor = preferencesLogin.edit();
         editor.putString("LOGIN", login);
         editor.commit();
     }
 
     public void SetAuthorizedUserName(String name)
     {
-        SharedPreferences.Editor editor = preferences.edit();
+        SharedPreferences.Editor editor = preferencesName.edit();
         editor.putString("NAME", name);
         editor.commit();
     }
 
     public void SetAuthorizedUserSurname(String surname)
     {
-        SharedPreferences.Editor editor = preferences.edit();
+        SharedPreferences.Editor editor = preferencesSurname.edit();
         editor.putString("SURNAME", surname);
         editor.commit();
     }
 
     public void SetAuthorizedUserEmail(String email)
     {
-        SharedPreferences.Editor editor = preferences.edit();
+        SharedPreferences.Editor editor = preferencesEmail.edit();
         editor.putString("EMAIL", email);
         editor.commit();
     }
 
     public void SetAuthorizedUserPassword(String password)
     {
-        SharedPreferences.Editor editor = preferences.edit();
+        SharedPreferences.Editor editor = preferencesPassword.edit();
         editor.putString("PASSWORD", password);
         editor.commit();
     }
 
     public void SetAuthorizedUserKnowledge(String knowledge)
     {
-        SharedPreferences.Editor editor = preferences.edit();
+        SharedPreferences.Editor editor = preferencesKnowledge.edit();
         editor.putString("KNOWLEDGE", knowledge);
         editor.commit();
     }
@@ -118,6 +135,17 @@ public class Preferences {
         SetAuthorizedUserPassword(user.Password);
         SetAuthorizedUserEmail(user.Email);
         SetAuthorizedUserKnowledge(user.Knowledge);
+    }
+
+    public void ForgetAuthorizedUser()
+    {
+        SetAuthorizedUserID(0);
+        SetAuthorizedUserLogin("_");
+        SetAuthorizedUserName("_");
+        SetAuthorizedUserSurname("_");
+        SetAuthorizedUserPassword("_");
+        SetAuthorizedUserEmail("_");
+        SetAuthorizedUserKnowledge("_");
     }
     //endregion
 

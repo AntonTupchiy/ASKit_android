@@ -5,4 +5,8 @@ package comantontupchiyaskit_android.httpsgithub.askit_android;
  */
 public class Globals {
     public static User user = new User();
+    public static Room room = new Room();
+    public static DBConnection dbConnection;
+    public static int UID;
+    public static String Login;
 }

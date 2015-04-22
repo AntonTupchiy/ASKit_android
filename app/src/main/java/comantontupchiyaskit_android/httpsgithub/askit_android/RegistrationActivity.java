@@ -1,6 +1,8 @@
 package comantontupchiyaskit_android.httpsgithub.askit_android;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,14 +29,29 @@ public class RegistrationActivity extends Activity {
 
     public void ConfirmRegistration(View view)
     {
-        EditText txtLog = (EditText) findViewById(R.id.txtLogin);
-        EditText txtPas = (EditText) findViewById(R.id.txtPassword);
-        EditText txtPasConf = (EditText) findViewById(R.id.txtPasswordConf);
-        EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
-        EditText txtInterests = (EditText) findViewById(R.id.txtInterests);
-        DBConnection dbConnection = new DBConnection();
-        dbConnection.NewUser(txtLog.getText().toString(), txtPas.getText().toString(), txtEmail.getText().toString(), txtInterests.getText().toString());
-
+        try {
+            EditText txtLog = (EditText) findViewById(R.id.txtLogin);
+            EditText txtPas = (EditText) findViewById(R.id.txtPassword);
+            EditText txtPasConf = (EditText) findViewById(R.id.txtPasswordConf);
+            EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
+            EditText txtInterests = (EditText) findViewById(R.id.txtInterests);
+            DBConnection dbConnection = new DBConnection();
+            dbConnection.NewUser(txtLog.getText().toString(), txtPas.getText().toString(), txtEmail.getText().toString(), txtInterests.getText().toString());
+            finish();
+        }
+        catch (Exception ex)
+        {
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage(ex.getMessage());
+            dlgAlert.setTitle("Error in communicating with database");
+            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    //dismiss the dialog
+                }
+            });
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
 //        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
 //        dlgAlert.setMessage(txtLog.getText().toString() + txtPas.getText().toString() + txtPasConf.getText().toString() + txtEmail.getText().toString() + txtInterests.getText().toString());
 //        dlgAlert.setTitle("Error occured");

@@ -18,6 +18,8 @@ public class AuthorizationActivity extends Activity {
     private DBConnection dbConnection = new DBConnection();
     private EditText txtLogin;
     private EditText txtPassword;
+    private Preferences preferences;
+    boolean authorisationChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,39 @@ public class AuthorizationActivity extends Activity {
 
         txtLogin = (EditText) findViewById(R.id.txtLogin);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
+        preferences = new Preferences(getApplicationContext());
+    }
+
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus)
+    {
+        preferences = new Preferences(getApplicationContext());
+        try {
+            if (hasFocus && !authorisationChecked) {
+                int s = preferences.GetAuthorizedUserID();
+                if (preferences.GetAuthorizedUserID() != 0) {
+                    Globals.user = preferences.GetAuthorizedUser();
+                    Intent i = new Intent(AuthorizationActivity.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+                authorisationChecked = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("Error occurred" + ex.getMessage());
+            dlgAlert.setTitle("Error occurred");
+            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    //dismiss the dialog
+                }
+            });
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
     }
 
     public void Authorize(View view)
@@ -40,6 +75,7 @@ public class AuthorizationActivity extends Activity {
         try {
             if (dbConnection.CheckCredentialsCorrectness(login, password)) {
                 Globals.user = dbConnection.GetUserData(login);
+                preferences.SetAuthorizedUser(Globals.user);
                 Intent i = new Intent(AuthorizationActivity.this, MainActivity.class);
                 startActivity(i);
             } else {
