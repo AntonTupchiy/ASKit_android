@@ -55,6 +55,10 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void AskButton(View view)
+    {
+       // Room room = new Room();
+    }
 /*    public void ConfirmRegistration(View view)
     {
         EditText txtLog = (EditText) findViewById(R.id.txtLogin);

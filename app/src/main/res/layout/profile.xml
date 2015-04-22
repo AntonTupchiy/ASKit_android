@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
-                android:id="@+id/editText10"
+                android:id="@+id/txtEmail"
                 android:layout_gravity="center_horizontal" />
 
             <TextView
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:ems="10"
-                    android:id="@+id/editText12"
+                    android:id="@+id/txtPasswordOld"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -104,9 +104,26 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:ems="10"
-                    android:id="@+id/editText11"
+                    android:id="@+id/txtPasswordNew"
                     android:layout_weight="1" />
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit knowledge"
+                android:id="@+id/textView15"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:textColor="#bb0705"
+                android:textSize="25dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/txtKnowledge"
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
 

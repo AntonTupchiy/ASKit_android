@@ -39,6 +39,7 @@ public class AuthorizationActivity extends Activity {
         String password = txtPassword.getText().toString();
         try {
             if (dbConnection.CheckCredentialsCorrectness(login, password)) {
+                Globals.user = dbConnection.GetUserData(login);
                 Intent i = new Intent(AuthorizationActivity.this, MainActivity.class);
                 startActivity(i);
             } else {

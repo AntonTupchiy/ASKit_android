@@ -49,6 +49,7 @@ public class DBConnection {
         return con;
     }
 
+    //region #Test shit
     //Insert query to mssql
     public void mysqlInit() {
 
@@ -79,7 +80,9 @@ public class DBConnection {
         });
         thread.start();
     }
+    //endregion
 
+    //region #INSERT procedures
     public void NewUser(String login, String password, String email, String interests)
     {
         final String query = "INSERT INTO [dbo].[Users] ([Login], [Name], [Surname], [E-Mail], [Password], [Knowledge]) " +
@@ -101,7 +104,9 @@ public class DBConnection {
         });
         thread.start();
     }
+    //endregion
 
+    //region #SELECT queries
     public boolean CheckCredentialsCorrectness(final String login, final String password) throws InterruptedException {
         final String query = "SELECT * FROM [dbo].[Users] WHERE [Login]='" + login + "' AND [Password]='" + password + "'";
         final AtomicBoolean b = new AtomicBoolean(false);
@@ -133,4 +138,37 @@ public class DBConnection {
         threadOnCheck.join();
         return b.get();
     }
+
+    public User GetUserData(final String login) throws InterruptedException {
+        final String query = "SELECT * FROM [dbo].[Users] WHERE [Login]='" + login + "'";
+        final User user = new User();
+        final AtomicBoolean b = new AtomicBoolean(false);
+        Thread threadOnCheck = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    resultSet = stmt.executeQuery(query);
+                    while (resultSet.next()){
+                        user.ID = resultSet.getInt("ID");
+                        user.Login = resultSet.getString("Login");
+                        user.Name = resultSet.getString("Name");
+                        user.Surname = resultSet.getString("Surname");
+                        user.Email = resultSet.getString("E-mail");
+                        user.Password = resultSet.getString("Password");
+                        user.Knowledge = resultSet.getString("Knowledge");
+                    }
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        threadOnCheck.start();
+        threadOnCheck.join();
+        return user;
+    }
+    //endregion
 }
