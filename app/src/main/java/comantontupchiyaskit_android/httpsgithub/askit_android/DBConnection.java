@@ -132,6 +132,29 @@ public class DBConnection {
             });
             thread.start();
     }
+
+    public void NewMessage(String message, java.util.Date date)
+    {
+        java.sql.Time sqlDate = new java.sql.Time(date.getTime());
+        final String query = "INSERT INTO [dbo].[Messages] ([RoomID], [AuthorID], [Text], [Time]) " +
+                "VALUES ('" + Globals.room.ID + "', '" + Globals.user.ID + "', '" + message + "', '" + sqlDate + "')";
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    stmt.execute(query);
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                    return;
+                }
+            }
+        });
+        thread.start();
+    }
     //endregion
 
     //region #SELECT queries
@@ -300,6 +323,38 @@ public class DBConnection {
                         room.time = resultSet.getTime("Time");
                         room.question = resultSet.getString("Question");
                         returnList.add(room);
+                    }
+                } catch (Exception e) {
+                    Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        threadOnCheck.start();
+        threadOnCheck.join();
+        return returnList;
+    }
+
+    public ArrayList<Message> GetAllMessagesData() throws InterruptedException {
+        final String query = "SELECT * FROM [dbo].[Messages ]";
+        final ArrayList<Message> returnList= new ArrayList<Message>();
+        final AtomicBoolean b = new AtomicBoolean(false);
+        Thread threadOnCheck = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    con = getDBConnection();
+                    stmt = con.createStatement();
+                    resultSet = stmt.executeQuery(query);
+                    while (resultSet.next()){
+                        Message message = new Message();
+                        message.ID = resultSet.getInt("MessageID");
+                        message.authorId = resultSet.getInt("AuthorID");
+                        message.roomID = resultSet.getInt("RoomID");
+                        message.time = resultSet.getTime("Time");
+                        message.text = resultSet.getString("Text");
+                        returnList.add(message);
                     }
                 } catch (Exception e) {
                     Log.d(LOG_TAG, "Connection or Execution Failed! Check output console");

@@ -3,13 +3,31 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textViewQuestion"
-        android:layout_gravity="center_horizontal" />
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/btnBack"
+            android:layout_centerVertical="true"
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textViewQuestion"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="150dp"
+            android:layout_toEndOf="@+id/btnBack"/>
+
+
+    </RelativeLayout>
 
     <TabHost
         android:layout_width="match_parent"
@@ -40,7 +58,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/listMessages" />
+                <FrameLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Send"
+                        android:id="@+id/btnSend"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="right|center_vertical"
+                        android:onClick="SendMessage"/>
+
+                    <EditText
+                        android:layout_width="498dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtNewMessage"
+                        android:width="50dp"
+                        android:layout_gravity="left|center_vertical" />
+                </FrameLayout>
                     </LinearLayout>
+
 
                 <LinearLayout
                     android:id="@+id/linearLayout4"
