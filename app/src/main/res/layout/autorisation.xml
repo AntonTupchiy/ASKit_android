@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2">
+    android:background="@drawable/yellow_stripes">
 
     <ImageView
         android:layout_width="216dp"
@@ -47,7 +47,7 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:text="Confirm"
         android:id="@+id/button5"
         android:textAllCaps="false"
@@ -59,7 +59,7 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:text="Registrate"
         android:id="@+id/button6"
         android:textAllCaps="false"

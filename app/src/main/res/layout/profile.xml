@@ -2,24 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/yellow_stripes">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:background="@drawable/yellow_stripes">
 
         <ImageView
-            android:layout_width="151dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
             android:id="@+id/imageView4"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.20" />
 
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="64dp"
+            android:layout_height="50dp"
             android:text="Add icon"
             android:id="@+id/button4"
             android:textAllCaps="false"
@@ -41,7 +42,7 @@
                 android:text="Edit E-mail"
                 android:id="@+id/textView11"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:textColor="#bb0705"
                 android:textSize="25dp" />
 
@@ -113,7 +114,7 @@
                 android:text="Edit knowledge"
                 android:id="@+id/textView15"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:textColor="#bb0705"
                 android:textSize="25dp" />
 
@@ -129,7 +130,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:text="Save changes"
             android:id="@+id/button10"
             android:textAllCaps="false"
