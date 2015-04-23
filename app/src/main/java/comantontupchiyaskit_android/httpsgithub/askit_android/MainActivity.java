@@ -129,7 +129,7 @@ public class MainActivity extends Activity {
 
         try {
 
-            Room[] allRoomsArray = new Room[rooms.size()];
+            final Room[] allRoomsArray = new Room[rooms.size()];
             rooms.toArray(allRoomsArray);
             RoomArrayAdapter roomArrayAdapter = new RoomArrayAdapter(this, R.layout.room_list_item, allRoomsArray);
             allRoomsList.setAdapter(roomArrayAdapter);
@@ -140,6 +140,7 @@ public class MainActivity extends Activity {
                      try {
                          Globals.room.question = ((TextView) ((LinearLayout)arg1).findViewById(R.id.question)).getText().toString();
                          Globals.room.authorId = dbConnection.GetUserId(((TextView) ((LinearLayout) arg1).findViewById(R.id.author)).getText().toString());
+                         Globals.room.ID = getRoomId(allRoomsArray, Globals.room.question);
                         //Toast.makeText(getApplicationContext(), question, Toast.LENGTH_LONG).show();
                          Intent i = new Intent(MainActivity.this, ChatActivity.class);
                          startActivity(i);
@@ -161,6 +162,16 @@ public class MainActivity extends Activity {
             dlgAlert.setCancelable(true);
             dlgAlert.create().show();
         }
+    }
+
+    private int getRoomId(Room[] allRoomsArray, String question)
+    {
+        for(int i = 0; i < allRoomsArray.length; i++) {
+            if (allRoomsArray[i].question == question)
+                return allRoomsArray[i].ID;
+        }
+        return 0;
+
     }
 
 
