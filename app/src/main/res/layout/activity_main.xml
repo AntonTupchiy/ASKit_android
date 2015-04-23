@@ -151,14 +151,14 @@
                 android:background="@drawable/glass_style">
 
                 <TabWidget
-                    android:id="@android:id/tabs"
+                    android:id="@+id/"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"></TabWidget>
 
                 <FrameLayout
                     android:id="@android:id/tabcontent"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="184dp">
 
                     <LinearLayout
                         android:id="@+id/tab1"

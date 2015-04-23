@@ -118,14 +118,6 @@
                 android:textColor="#bb0705"
                 android:textSize="25dp" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:ems="10"
-                android:id="@+id/txtKnowledge"
-                android:layout_gravity="center_horizontal" />
-
         </LinearLayout>
 
         <Button
