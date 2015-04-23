@@ -108,17 +108,18 @@
                     android:id="@+id/txtPasswordNew"
                     android:layout_weight="1" />
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Edit knowledge"
-                android:id="@+id/textView15"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:textColor="#bb0705"
-                android:textSize="25dp" />
 
         </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Edit knowledge"
+            android:id="@+id/knowledge"
+            android:textAllCaps="false"
+            android:background="@drawable/glass_style"
+            android:textColor="#bb0705"
+            android:textSize="25dp" />
 
         <Button
             android:layout_width="match_parent"
